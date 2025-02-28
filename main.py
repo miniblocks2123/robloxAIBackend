@@ -4,7 +4,8 @@ import openai  # Change this if using another AI model
 app = Flask(__name__)
 
 # Configure OpenAI API Key (or replace with Ollama if running locally)
-openai.api_key = "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"
+import os
+openai.api_key = os.getenv("OPENAI_API_KEY")  # Securely fetch API key
 
 @app.route('/ai-input', methods=['POST'])
 def ai_input():
